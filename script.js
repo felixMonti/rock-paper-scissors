@@ -7,3 +7,10 @@ const computerChoice = ()=>{
     return choices[randomIndex];
 };
 
+//human choice 
+
+const humanChoice = () => {
+    const choice = prompt("Please enter rock, paper, or scissors").toLowerCase();
+    return choice
+}
+
