@@ -14,6 +14,7 @@ const getHumanChoice = () => {
     return choice
 }
 
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -39,3 +40,21 @@ const computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection);
 
 
+function playGame() {
+    
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+
+    if (humanScore > computerScore) {
+        console.log("Congratulations! You are the overall winner!");
+    } else if (computerScore > humanScore) {
+        console.log("Sorry! The computer wins this time.");
+    } else {
+        console.log("It's a tie overall!");
+    }
+}
+
+playGame();
