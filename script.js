@@ -51,6 +51,7 @@ const updateScore = (result)=>{
         resultDiv.textContent = "Sorry! The computer won the game.";
         resetGame();
     }
+}
 
 //resetGame function
 
@@ -72,5 +73,4 @@ paper.addEventListener("click",()=>{
 scissors.addEventListener("click",()=>{
     playRound("scissors",getComputerChoice())
 })
-
 
