@@ -38,6 +38,7 @@ function playRound(humanChoice, computerChoice) {
     updateScore(result)
 }
 
+//update score function
 
 const updateScore = (result)=>{
     resultDiv.textContent = result;
@@ -50,6 +51,14 @@ const updateScore = (result)=>{
         resultDiv.textContent = "Sorry! The computer won the game.";
         resetGame();
     }
+
+//resetGame function
+
+const resetGame = () => {
+    humanScore = 0;
+    computerScore = 0; 
+}
+
 //human choice 
 
 rock.addEventListener("click",()=>{
