@@ -1,3 +1,13 @@
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper")
+const scissors = document.getElementById("scissors")
+const resultDiv = document.getElementById("result")
+const scoreDiv = document.getElementById("score")
+ 
+
+
+let humanScore = 0;
+let computerScore = 0;
 
 //computer choice 
 
@@ -7,34 +17,39 @@ const getComputerChoice = ()=>{
     return choices[randomIndex];
 };
 
-//human choice 
-
-const getHumanChoice = () => {
-    const choice = prompt("Please enter rock, paper, or scissors").toLowerCase();
-    return choice
-}
-
-
-let humanScore = 0;
-let computerScore = 0;
+//play round
 
 function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
+    let result = "";
+
     if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
+        result = "It's a tie!";
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+         result = `You win! ${humanChoice} beats ${computerChoice}`;
         humanScore++;
     } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        result = `You lose! ${computerChoice} beats ${humanChoice}`;
         computerScore++;
     }
+    updateScore(result)
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
+//human choice 
+
+rock.addEventListener("click",()=>{
+    playRound("rock",getComputerChoice())
+})
+
+paper.addEventListener("click",()=>{
+    playRound("paper",getComputerChoice())
+})
+
+scissors.addEventListener("click",()=>{
+    playRound("scissors",getComputerChoice())
+})
+
+
